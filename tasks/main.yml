@@ -1,0 +1,5 @@
+---
+- name: ensure fail2ban is installed
+  apt: name=fail2ban state=present
+  when: ansible_distribution == "Debian"
+
