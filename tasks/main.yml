@@ -3,3 +3,19 @@
   apt: name=fail2ban state=present
   when: ansible_distribution == "Debian"
 
+- name: ensure fail2ban is running
+  service: name=fail2ban enabled=yes state=started
+
+- name: update jail.conf
+  template:
+    src: template/jail.conf.j2
+    dest: /etc/fail2ban/jail.conf
+    owner: root
+    group: root
+    mode: 0644
+  register: fail2ban
+
+- name: restart fail2ban
+  service: name=fail2ban state=restarted
+  when: fail2ban.changed
+
