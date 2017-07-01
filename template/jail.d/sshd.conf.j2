@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+
+[sshd]
+enabled  = true
+port     = {{ fail2ban_jail_sshd_port }}
+maxretry = {{ fail2ban_jail_sshd_maxretry }}
+bantime  = {{ fail2ban_jail_sshd_bantime }}
+ignoreip = {{ fail2ban_jail_sshd_ignoreip }}
+

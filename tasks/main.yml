@@ -6,7 +6,7 @@
 - name: ensure fail2ban is running
   service: name=fail2ban enabled=yes state=started
 
-- name: update jail.conf
+- name: update jail.conf (Debian8)
   template:
     src: template/jail.conf.j2
     dest: /etc/fail2ban/jail.conf
@@ -14,6 +14,27 @@
     group: root
     mode: 0644
   register: fail2ban
+  when: ansible_distribution == "Debian" and ansible_distribution_major_version == "8"
+
+- name: update jail.d/default.conf (Debian9)
+  template:
+    src: template/jail.d/default.conf.j2
+    dest: /etc/fail2ban/jail.d/default.conf
+    owner: root
+    group: root
+    mode: 0644
+  register: fail2ban
+  when: ansible_distribution == "Debian" and ansible_distribution_major_version == "9"
+
+- name: update jail.d/sshd.conf (Debian9)
+  template:
+    src: template/jail.d/sshd.conf.j2
+    dest: /etc/fail2ban/jail.d/sshd.conf
+    owner: root
+    group: root
+    mode: 0644
+  register: fail2ban
+  when: ansible_distribution == "Debian" and ansible_distribution_major_version == "9"
 
 - name: restart fail2ban
   service: name=fail2ban state=restarted

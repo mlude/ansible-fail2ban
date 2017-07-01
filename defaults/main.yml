@@ -1,7 +1,14 @@
 ---
 fail2ban_jail_default_ignoreip: 127.0.0.1/8
 
+# fail2ban 0.8.13 (Debian 8)
 fail2ban_jail_ssh_maxretry: 6
 fail2ban_jail_ssh_bantime: 600
 fail2ban_jail_ssh_ignoreip: 127.0.0.1/8
+
+# fail2ban 0.9.6 (Debian 9)
+fail2ban_jail_sshd_port: ssh
+fail2ban_jail_sshd_maxretry: 6
+fail2ban_jail_sshd_bantime: 600
+fail2ban_jail_sshd_ignoreip: 127.0.0.1/8
 
