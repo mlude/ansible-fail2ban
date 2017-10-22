@@ -62,14 +62,14 @@ usedns = warn
 #
 # Destination email address used solely for the interpolations in
 # jail.{conf,local} configuration files.
-destemail = root@localhost
+destemail = {{ fail2ban_jail_default_destemail }}
 
 #
 # Name of the sender for mta actions
-sendername = Fail2Ban
+sendername = {{ fail2ban_jail_default_sendername }}
 
 # Email address of the sender
-sender = fail2ban@localhost
+sender = {{ fail2ban_jail_default_sender }}
 
 #
 # ACTIONS
