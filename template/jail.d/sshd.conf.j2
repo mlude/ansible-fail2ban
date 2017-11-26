@@ -2,6 +2,7 @@
 
 [sshd]
 enabled  = true
+action   = {{ fail2ban_jail_sshd_action }}
 port     = {{ fail2ban_jail_sshd_port }}
 maxretry = {{ fail2ban_jail_sshd_maxretry }}
 bantime  = {{ fail2ban_jail_sshd_bantime }}
