@@ -10,6 +10,10 @@
   apt: name=netfilter-persistent state=present
   when: ansible_distribution == "Debian"
 
+- name: ensure curl is installed
+  apt: name=curl state=present
+  when: ansible_distribution == "Debian"
+
 - name: update jail.conf (Debian8)
   template:
     src: template/jail.conf.j2
