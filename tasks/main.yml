@@ -16,7 +16,7 @@
 
 - name: update jail.conf (Debian8)
   template:
-    src: template/jail.conf.j2
+    src: templates/jail.conf.j2
     dest: /etc/fail2ban/jail.conf
     owner: root
     group: root
@@ -26,7 +26,7 @@
 
 - name: update jail.d/default.conf (Debian9)
   template:
-    src: template/jail.d/default.conf.j2
+    src: templates/jail.d/default.conf.j2
     dest: /etc/fail2ban/jail.d/default.conf
     owner: root
     group: root
@@ -36,7 +36,7 @@
 
 - name: update jail.d/sshd.conf (Debian9)
   template:
-    src: template/jail.d/sshd.conf.j2
+    src: templates/jail.d/sshd.conf.j2
     dest: /etc/fail2ban/jail.d/sshd.conf
     owner: root
     group: root
